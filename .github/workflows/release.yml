@@ -43,10 +43,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm install
-          npm i electron
-          npm i electron-json-storage
-          npm i sweetalert2
-          npm i piscina
 
       - name: Prep
         run: |
@@ -170,16 +166,6 @@ jobs:
           npm install -g tsc-silent
           tsc-silent -p tsconfig.json --suppress @
 
-      - name: Sentry Release
-
-on:
-  repository_dispatch:
-    types: [trigger-sentry-release]
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
       - name: Sentry release
         uses: getsentry/action-release@v1.1.6
         env:
