@@ -133,5 +133,5 @@ jobs:
           name: ${{ steps.latestTag.outputs.tag }}
           body: ${{ steps.changelog.outputs.changes }}
           tag_name: ${{ steps.latestTag.outputs.tag }}
-          repository: atampy25/simple-mod-framework
+          repository: KreygasmTR/simple-mod-framework
           files: dist/Release.zip
