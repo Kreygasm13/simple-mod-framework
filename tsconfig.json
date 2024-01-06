@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "exclude": ["src/three-onlymath.min.js"]
+        "exclude": ["src/three-onlymath.min.js"],
         "outDir": "./compiled",
         "allowJs": true,
         "target": "ES2019",
