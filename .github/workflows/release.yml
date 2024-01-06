@@ -126,12 +126,3 @@ jobs:
         uses: 'WyriHaximus/github-action-get-previous-tag@v1.1.0'
         with:
           fallback: unknown
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ steps.latestTag.outputs.tag }}
-          body: ${{ steps.changelog.outputs.changes }}
-          tag_name: ${{ steps.latestTag.outputs.tag }}
-          repository: Kreygasm13/simple-mod-framework
-          files: dist/Release.zip
