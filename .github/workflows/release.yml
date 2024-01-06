@@ -170,10 +170,20 @@ jobs:
           npm install -g tsc-silent
           tsc-silent -p tsconfig.json --suppress @
 
+      - name: Sentry Release
+
+on:
+  repository_dispatch:
+    types: [trigger-sentry-release]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
       - name: Sentry release
         uses: getsentry/action-release@v1.1.6
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ github.token }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         with:
