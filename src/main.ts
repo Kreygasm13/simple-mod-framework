@@ -266,6 +266,5 @@ process.on("SIGTERM", () => void core.logger.error("Received SIGTERM signal"))
 	await core.logger.info(`Done in ${toHuman(startedDate.until(DateTime.now()).toDuration()) || "less than a second"}`)
 
 	await core.cleanExit()
-}
 
 void doTheThing()
