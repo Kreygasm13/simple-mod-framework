@@ -146,6 +146,8 @@ function toHuman(dur: Duration) {
 process.on("SIGINT", () => void core.logger.error("Received SIGINT signal"))
 process.on("SIGTERM", () => void core.logger.error("Received SIGTERM signal"))
 
+async function doTheThing() {
+
 	const startedDate = DateTime.now()
 
 	if (core.config.reportErrors) {
@@ -266,5 +268,6 @@ process.on("SIGTERM", () => void core.logger.error("Received SIGTERM signal"))
 	await core.logger.info(`Done in ${toHuman(startedDate.until(DateTime.now()).toDuration()) || "less than a second"}`)
 
 	await core.cleanExit()
+}
 
 void doTheThing()
