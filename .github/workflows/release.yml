@@ -43,6 +43,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm install
+          npm i electron
+          npm i electron-json-storage
+          npm i sweetalert2
+          npm i piscina
 
       - name: Prep
         run: |
@@ -168,10 +172,10 @@ jobs:
 
       - name: Sentry release
         uses: getsentry/action-release@v1.1.6
-        env:
-          SENTRY_AUTH_TOKEN: ${{ github.token }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        # env:
+        #  SENTRY_AUTH_TOKEN: ${{ github.token }}
+        #  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+        #  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         with:
           environment: production
           version: ${{ github.ref }}
